@@ -1,0 +1,32 @@
+<%- contentFor('content') %>
+<!-- jika key error yang muncul di browser ditunjukkan sebagai not defined -->
+<% if (typeof errors != 'undefined') { %>
+    <div class="alert alert-danger" role="alert">
+    <ul>
+        <!-- lakukan perulangan dengan foreach untuk mencetak error message -->
+        <% errors.forEach(err => { %>
+            <li>
+                <%= err.msg %> 
+            </li>
+            <% }) %>
+        </ul>
+    </div>  
+<% } %> 
+<form action="/add" method="post">
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Name</label>
+        <input type="text" name="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Mobile Phone</label>
+        <input type="tel" name="phone" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Email address</label>
+        <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    </div>
+    <div class="d-inline">
+        <button type="submit" class="btn btn-danger me-2">Submit</button>
+        <a href="/contact" class="btn btn-danger">Back to contact</a>
+    </div>
+</form>
